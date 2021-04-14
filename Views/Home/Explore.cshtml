@@ -1,15 +1,61 @@
-<!DOCTYPE html>
+@model Assignment_4_WebApplication.Models.Results
+@{ 
+    ViewData["Title"] = "Explore";
+}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explore Data</title>
-    <!--- <link rel="stylesheet" href="./css/Explore.css" /> -->
     <link rel="stylesheet" href="~/css/Explore.css" type="text/css" />
-    <!-- <script src="Explore.js"></script>  -->
+
+    <style>
+        .dropbtn {
+            background-color: black;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: red;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+    </style>
+
 </head>
 <body>
-    <nav class = "navbar">  
+    <nav class="navbar">
         <div class="navbar__container">
             <a href="/" id="navbar__logo">Crime statistics in U.S.</a>
             <div class="navbar__toggle" id="mobile-menu">
@@ -31,35 +77,41 @@
                     <a class="navbar__links" asp-controller="Home" asp-action="AboutUs">About Us</a>
                 </li>
             </ul>
-        </div>       
-       </nav>
-    <label for="Crime">Crime data Collection:</label>
+        </div>
+    </nav>
 
-    <select name="Crime" id="Crime">
-      <option value="Homicide">Expanded Homicide data</option>
-      <option value="Arrest">Expanded Arrest data</option>
-      <option value="Property">Expanded Property data</option>
-
-    </select> 
-
+        <div class="dropdown">
+            <button class="dropbtn">Select data to explore</button>
+            <div class="dropdown-content">
+                <a asp-controller="Home" asp-action="HomicideData">Homicide data</a>
+                <a asp-controller="Home" asp-action="ArrestData">Arrest data</a>
+                <a asp-controller="Home" asp-action="PropertyData">Property data</a>
+            </div>
+        </div>
     <div>
-        <img class = "main" src="/images/ExHomicide.PNG" alt="Crime statistics" />
+        <img class="main" src="/images/ExHomicide.PNG" alt="Crime statistics" />
     </div>
 
     <b> Expanded Homicide Offense Counts in the United States, 2009 - 2019  </b>
-   
-  <table  id="example" class="table" style="width:100%">
 
-    <tr><th>Year</th>   <th>Population</th>  <th>Homicide</th> <th>View</th> </tr> 
-    <tr><td>2016</td>   <td>323127513</td>      <td>11788</td></tr>
-    <tr><td>2015</td>   <td>320896618</td>      <td>11092</td></tr>
-    <tr><td>2014</td>   <td>318907401</td>      <td>10571</td></tr>
-    <tr><td>2013</td>   <td>316497531</td>      <td>10231</td></tr>
-    <tr><td>2012</td>   <td>313873685</td>      <td>11075</td></tr>
-    <tr><td>2011</td>   <td>311587816</td>     <td>10832</td></tr>
-    <tr><td>2010</td>   <td>309330219</td>      <td>11201</td></tr>
-    <tr><td>2009</td>   <td>307006550</td>     <td>12418</td></tr>
-    </table>
+    <div style="width:50%; height:700px; overflow:auto;">
+        <table class="table">
+            <tr>
+                <th>Year </th>
+                <th>Agency Count </th>
+                <th>Total Population </th>
+            </tr>
+
+            @foreach (Assignment_4_WebApplication.Models.Result result in Model.results)
+            {
+                <tr>
+                    <td>@result.data_year</td>
+                    <td>@result.covered_agency_count</td>
+                    <td>@result.total_population</td>
+                </tr>
+            }
+        </table>
+    </div>
     <script src="/js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,38 @@
+﻿@model Assignment_4_WebApplication.Models.Results
+@{
+    ViewData["Title"] = "Explore";
+}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Data</title>
+    <link rel="stylesheet" href="~/css/Explore.css" type="text/css" />
+
+
+</head>
+<body>
+    <b> Expanded Homicide Offense Counts in the United States, 2009 - 2019  </b>
+
+    <div style="width:50%; height:700px; overflow:auto;">
+        <table class="table">
+            <tr>
+                <th>Year </th>
+                <th>Agency Count </th>
+                <th>Total Population </th>
+            </tr>
+
+            @foreach (Assignment_4_WebApplication.Models.Result result in Model.results)
+            {
+                <tr>
+                    <td>@result.data_year</td>
+                    <td>@result.covered_agency_count</td>
+                    <td>@result.total_population</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <script src="/js/main.js"></script>
+</body>
+</html>
