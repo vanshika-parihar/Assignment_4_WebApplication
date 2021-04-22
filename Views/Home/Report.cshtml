@@ -6,52 +6,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report</title>
     <link rel="stylesheet" href="~/css/Report.css" type="text/css" />
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=text], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        input[type=submit] {
+            background-color: #000000;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            input[type=submit]:hover {
+                background-color: red;
+            }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+    </style>
+
 </head>
 <body>
-    <nav class = "navbar">  
+    <nav class="navbar">
         <div class="navbar__container">
-            <a href="/" id = "navbar__logo">Crime statistics in U.S.</a>
-               <div class="navbar__toggle" id="mobile-menu">
-                  <span class="bar"></span>
-                   <span class="bar"></span>
-                   <span class="bar"></span>
+            <a href="/" id="navbar__logo">Crime statistics in U.S.</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-               <ul class="navbar__menu">
-                   <li class="navbar__item">
-                       <a class="navbar__links" asp-controller="Home" asp-action="Index">Home</a>
-                   </li>
-                   <li class="navbar__item">
-                       <a class="navbar__links" asp-controller="Home" asp-action="Explore">Explore Data</a>
-                   </li>
-                   <li class="navbar__item">
-                       <a class="navbar__links" asp-controller="Home" asp-action="Report">Report an Incident</a>
-                   </li>
-                   <li class="navbar__item">
-                       <a class="navbar__links" asp-controller="Home" asp-action="AboutUs">About Us</a>
-                   </li>
-               </ul>
-        </div>       
-       </nav>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a class="navbar__links" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__links" asp-controller="Home" asp-action="Explore">Explore Data</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__links" asp-controller="Home" asp-action="Report">Report an Incident</a>
+                </li>
+                <li class="navbar__item">
+                    <a class="navbar__links" asp-controller="Home" asp-action="AboutUs">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-       
-       <img class = "main" src="/images/file.PNG" >
-        <div class="opaque">
-            <div class="selection">
-                <h1>Crime Incident Report Form</h1>
 
-                
-                    <label for="Person">Person Receiving Report:</label>
-                    <input type="Person" id="Person" name="nname" ><br><br>
-                    <label for="Phone Number">Phone Number:</label>
-                    <input type="text" id="nname" ><br><br>
-                    <label for="Madeby">Report Made by:</label>
-                    <input type="text" id="Madeby"  ><br><br>
-                    <label for="Loc">Location of Incident:</label>
-                    <input type="text" id="Loc"><br><br>
-                    <input type="submit" value="Submit">
-              
+    <img class="main" src="/images/file.PNG">
+    
+    <h1>Crime Incident Report Form</h1>
+    <div class="container">
+        <form action="/action_page.php">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name..">
 
-  </div>
-            <script src="/js/main.js"></script>
+            <label for="phonenumber">Phone Number</label>
+            <input type="text" id="phonenumber" name="phonenumber" placeholder="Phone Number..">
+
+            <label for="city">City of Incident</label>
+            <input type="text" id="city" name="city" placeholder="City name..">
+
+            <label for="statename">State</label>
+            <input type="text" id="statename" name="statename" placeholder="State name..">
+
+            <label for="relation">Relation to Victim</label>
+            <select id="relation" name="relation">
+                <option value="Family">Family</option>
+                <option value="Friend">Friend</option>
+                <option value="Unknown">Unknown</option>
+            </select>
+
+            <label for="Description">Description</label>
+            <textarea id="subject" name="subject" placeholder="Incident discription.." style="height:100px"></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+
+    <script src="/js/main.js"></script>
 </body>
 </html>
