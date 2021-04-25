@@ -1,5 +1,5 @@
 @model Assignment_4_WebApplication.Models.Results
-@{ 
+@{
     ViewData["Title"] = "Explore";
 }
 
@@ -91,8 +91,8 @@
     </div>
 
 
-  
-     <canvas id="myChart" width="50" height="10"></canvas>
+
+    <canvas id="myChart" width="50" height="10"></canvas>
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var xlabels = [];
@@ -105,12 +105,12 @@
         //    dataset.push(Assignment_4_WebApplication.Models.Result.total_population);
         //};
 
-            var myChart = new Chart(ctx, {
+        var myChart = new Chart(ctx, {
             type: 'line',
             data: {
-               // labels: xlabels,
+                // labels: xlabels,
                 labels: ['2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007',
-                   '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019'],
+                    '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019'],
                 datasets: [{
                     label: 'Rate of all the criminal offenses by Population ',
                     data: [286335900, 289627938, 293182392, 295709600, 298656157, 301499406, 304523081,
@@ -126,13 +126,13 @@
                 }]
             },
             options: {
-             scales: {
+                scales: {
                     y: {
                         beginAtZero: false
                     }
-                 }
-             }
-            });
+                }
+            }
+        });
     </script>
 
 
@@ -144,16 +144,20 @@
         <table class="table">
             <tr>
                 <th>Year </th>
-                <th>Agency Count </th>
-                <th>Total Population </th>
+                <th>Population </th>
+                <th>Homicide </th>
+                <th>Property Crime</th>
+                <th>Violent Crime</th>
             </tr>
-
             @foreach (Assignment_4_WebApplication.Models.Result result in Model.results)
             {
         <tr>
-            <td>@result.data_year</td>
-            <td>@result.covered_agency_count</td>
-            <td>@result.total_population</td>
+            <td>@result.year</td>
+            <td>@result.population</td>
+            <td>@result.homicide</td>
+            <td>@result.property_crime</td>
+            <td>@result.violent_crime</td>
+            
         </tr>
             }
         </table>

@@ -96,17 +96,17 @@
         <table class="table">
             <tr>
                 <th>Year </th>
-                <th>Agency Count </th>
-                <th>Total Population </th>
+                <th>Poulation </th>
+                <th>Homicide </th>
             </tr>
 
             @foreach (Assignment_4_WebApplication.Models.Result result in Model.results)
             {
-                <tr>
-                    <td>@result.data_year</td>
-                    <td>@result.covered_agency_count</td>
-                    <td>@result.total_population</td>
-                </tr>
+        <tr>
+            <td>@result.year</td>
+            <td>@result.population</td>
+            <td>@result.homicide</td>
+        </tr>
             }
         </table>
     </div>

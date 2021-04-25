@@ -42,7 +42,8 @@ namespace Assignment_4_WebApplication.Controllers
             httpClient.DefaultRequestHeaders.Accept.Add(
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-            string FBI_DATA_API_PATH = BASE_URL + "api/participation/national?";
+            //string FBI_DATA_API_PATH = BASE_URL + "api/participation/national?";
+            string FBI_DATA_API_PATH = BASE_URL + "api/summarized/estimates/national/2000/2019?";
             string resultsData = "";
 
             Results results = null;
@@ -90,7 +91,8 @@ namespace Assignment_4_WebApplication.Controllers
             httpClient.DefaultRequestHeaders.Accept.Add(
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-            string FBI_DATA_API_PATH = BASE_URL + "api/participation/national?";
+            //string FBI_DATA_API_PATH = BASE_URL + "api/participation/national?";
+            string FBI_DATA_API_PATH = BASE_URL + "api/summarized/estimates/national/2000/2019?";
             string resultsData = "";
 
             Results results = null;
@@ -108,7 +110,7 @@ namespace Assignment_4_WebApplication.Controllers
 
                 if (!resultsData.Equals(""))
                 {
-     
+
                     results = JsonConvert.DeserializeObject<Results>(resultsData);
                 }
             }
@@ -128,7 +130,8 @@ namespace Assignment_4_WebApplication.Controllers
             httpClient.DefaultRequestHeaders.Accept.Add(
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-            string FBI_DATA_API_PATH = BASE_URL + "api/participation/national?";
+            //string FBI_DATA_API_PATH = BASE_URL + "api/participation/national?";
+            string FBI_DATA_API_PATH = BASE_URL + "api/summarized/estimates/national/2000/2019?";
             string resultsData = "";
 
             Results results = null;
@@ -167,7 +170,8 @@ namespace Assignment_4_WebApplication.Controllers
             httpClient.DefaultRequestHeaders.Accept.Add(
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
-            string FBI_DATA_API_PATH = BASE_URL + "api/participation/national?";
+            //string FBI_DATA_API_PATH = BASE_URL + "api/participation/national?";
+            string FBI_DATA_API_PATH = BASE_URL + "api/summarized/estimates/national/2000/2019?";
             string resultsData = "";
 
             Results results = null;
