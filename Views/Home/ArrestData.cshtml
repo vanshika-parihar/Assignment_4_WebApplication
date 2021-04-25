@@ -82,7 +82,7 @@
              <button class="dropbtn">Select data to explore</button>
              <div class="dropdown-content">
                  <a asp-controller="Home" asp-action="HomicideData">Homicide data</a>
-                 <a asp-controller="Home" asp-action="ArrestData">Arrest data</a>
+                 <a asp-controller="Home" asp-action="ArrestData">Rape crime data</a>
                  <a asp-controller="Home" asp-action="PropertyData">Property data</a>
              </div>
          </div>
@@ -92,16 +92,19 @@
         <table class="table">
             <tr>
                 <th>Year </th>
-                <th>Agency Count </th>
-                <th>Total Population </th>
+                <th>Rape crime legacy data </th>
+                <th>Rape crime revised data </th>
             </tr>
 
             @foreach (Assignment_4_WebApplication.Models.Result result in Model.results)
             {
         <tr>
             <td>@result.year</td>
-            <td>@result.homicide</td>
-            <td>@result.population</td>
+            <td>@result.rape_legacy</td>
+            <td>@result.rape_revised</td>
+
+             
+             
         </tr>
             }
         </table>

@@ -20,6 +20,30 @@
       display: block;
     }
   }
+table#t02 {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+}
+
+    table#t02 tr:nth-child(even) {
+        background-color: #eee;
+        height: 50px;
+        color: black;
+    }
+
+    table#t02 tr:nth-child(odd) {
+        background-color: #fff;
+        height: 50px;
+        color: black;
+    }
+
+    table#t02 th {
+        background-color: rgb(189, 82, 82);
+        color: black;
+        height: 50px;
+    }
 
   
   .button {

@@ -104,6 +104,40 @@
             <input type="submit" value="Submit">
         </form>
     </div>
+
+    <table id="t02">
+
+        <tr>
+
+            <th>Name</th>
+            <th>Phone number</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>State</th>
+            <th>Relation</th>
+            <th>Description</th>
+        </tr>
+        @foreach (Assignment_4_WebApplication.Models.Incident incident in Model.incidents)
+
+        {
+            <tr>
+                <td>@incident.name</td>
+                <td>@incident.phone_number</td>
+                <td>@incident.city</td>
+                <td>@incident.address</td>
+                <td>@incident.state</td>
+                <td>@incident.relation</td>
+                <td>@incident.description</td>
+                <td>
+                    @using (Html.BeginForm("DeleteReview", "Incident", FormMethod.Post))
+                    {
+                        <button value="@incident.incident_id" name="incident_id" type="submit" class="submit">Delete</button>}
+                </td>
+            </tr>
+   }
+    </table>
+
+
     <script>
         function myFunction() {
             alert("The form was submitted");
