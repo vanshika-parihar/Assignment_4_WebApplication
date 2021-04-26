@@ -36,11 +36,11 @@ namespace Assignment_4_WebApplication.Controllers
             optionsBuilder.UseSqlServer(ApplicatonDbContext.GetConnectionString());
             using (var dbContext = new ApplicatonDbContext(optionsBuilder.Options))
             {
-                var review = new Incident() { incident_id = incident_id };
+                var review = new Incident() { id = incident_id };
                 dbContext.Incidents.Remove(review);
                 dbContext.SaveChanges();
             }
-            return RedirectToAction("Incidents");
+            return RedirectToAction("Report");
         }
 
         [HttpPost]
@@ -50,6 +50,7 @@ namespace Assignment_4_WebApplication.Controllers
             optionsBuilder.UseSqlServer(ApplicatonDbContext.GetConnectionString());
             using (var dbContext = new ApplicatonDbContext(optionsBuilder.Options))
             {
+                dbContext.Database.EnsureCreated();
                 var review = new Incident();
                 review.name = name;
                 review.phone_number = phone_number;
@@ -63,7 +64,7 @@ namespace Assignment_4_WebApplication.Controllers
                 dbContext.Incidents.Add(review);
                 dbContext.SaveChanges();
             }
-            return RedirectToAction("Incidents");
+            return RedirectToAction("Report");
         }
 
     }

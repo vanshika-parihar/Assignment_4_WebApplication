@@ -118,33 +118,27 @@
                 <th>Description</th>
             </tr>
 
-            @*@foreach (var incident in Model.incidents)
+            @foreach (var incident in Model.incidents)
 
-            {
-                <tr>
-                    <td>@incident.name</td>
-                    <td>@incident.phone_number</td>
-                    <td>@incident.city</td>
-                    <td>@incident.address</td>
-                    <td>@incident.state</td>
-                    <td>@incident.relation</td>
-                    <td>@incident.description</td>
-                    <td>
-                        @using (Html.BeginForm("DeleteReview", "Incident", FormMethod.Post))
-                        {
-                            <button value="@incident.incident_id" name="incident_id" type="submit" class="submit">Delete</button>}
-                    </td>
-                </tr>
-            }*@
+                {
+                    <tr>
+                        <td>@incident.name</td>
+                        <td>@incident.phone_number</td>
+                        <td>@incident.city</td>
+                        <td>@incident.address</td>
+                        <td>@incident.state</td>
+                        <td>@incident.relation</td>
+                        <td>@incident.description</td>
+                        <td>
+                            @using (Html.BeginForm("DeleteReview", "Incident", FormMethod.Post))
+                            {
+                                <button value="@incident.id" name="id" type="submit" class="submit">Delete</button>}
+                        </td>
+                    </tr>
+                }
         </table>
     </div>
 
-
-        <script>
-            function myFunction() {
-                alert("The form was submitted");
-            }
-        </script>
         <script src="/js/main.js"></script>
 </body>
 </html>

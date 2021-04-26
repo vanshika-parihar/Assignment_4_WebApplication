@@ -15,7 +15,7 @@ namespace Assignment_4_WebApplication.DataAccess
 
         public Microsoft.EntityFrameworkCore.DbSet<Incident> Incidents { get; set; }
 
-        string connectionstring = "Server=(localdb)\\MSSQLLocalDB; Database=Incidents;Trusted_Connection=True;MultipleActiveResultSets=true";
+        string connectionstring = "Server=(localdb)\\MSSQLLocalDB; Database=Assignment_4_WebApplication;Trusted_Connection=True;MultipleActiveResultSets=true";
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(connectionstring);

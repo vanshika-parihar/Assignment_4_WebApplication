@@ -8,8 +8,8 @@ namespace Assignment_4_WebApplication.Models
     
     public class Incident
     {
-
-        public object incident_id { get; set; }
+        
+        public int id { get; set; }
         public string name { get; set; }
         public int     phone_number { get; set; }
         public string city { get; set; }
