@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace Assignment_4_WebApplication.Models
 {
-    public class Incidents
-    {
-        public Incident[] incidents { get; set; }
-    }
+    //public class Incidents
+    //{
+    //    public Incident[] incidents { get; set; }
+    //}
     public class Incident
     {
 
@@ -22,4 +22,9 @@ namespace Assignment_4_WebApplication.Models
         public string description { get; set; }
 
     }
+    public class Incidents
+    {
+        public List<Incident> incidents { get; set; }
+    }
+
 }
