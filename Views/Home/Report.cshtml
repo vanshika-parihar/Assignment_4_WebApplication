@@ -78,7 +78,7 @@
 
     <h1>Crime Incident Report Form</h1>
     <div class="container">
-        <form action="/action_page.php" onsubmit="myFunction()">
+        <form method="post" asp-controller="Incident" asp-action="AddIncident">
             <label for="name">Your Name</label>
             <input type="text" id="name" name="name" placeholder="Your name..">
 

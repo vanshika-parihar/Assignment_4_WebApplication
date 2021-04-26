@@ -13,12 +13,19 @@ namespace Assignment_4_WebApplication.DataAccess
     {
         public ApplicatonDbContext(DbContextOptions options) : base(options) { }
 
-        public Microsoft.EntityFrameworkCore.DbSet<Incident> Reviews { get; set; }
+        public Microsoft.EntityFrameworkCore.DbSet<Incident> Incidents { get; set; }
+
+        string connectionstring = "Server=(localdb)\\MSSQLLocalDB; Database=Incidents;Trusted_Connection=True;MultipleActiveResultSets=true";
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(connectionstring);
+        }
 
         public static string GetConnectionString()
         {
-            string constring = @"Server=(localdb)\mssqllocaldb;Database=Incident_DB;Trusted_Connection=True;ConnectRetryCount=0";
-            return constring;
+            string connectionstring = @"Server=(localdb)\\MSSQLLocalDB; Database=Assignment_4_WebApplication;Trusted_Connection=True;ConnectRetryCount=0";
+            return connectionstring;
         }
+
     }
 }

@@ -22,7 +22,7 @@ namespace Assignment_4_WebApplication.Controllers
             optionsBuilder.UseSqlServer(ApplicatonDbContext.GetConnectionString());
             using (var dbContext = new ApplicatonDbContext(optionsBuilder.Options))
             {
-                var Incidents = dbContext.Reviews.ToList();
+                var Incidents = dbContext.Incidents.ToList();
                 var incidents = new Incidents();
                 incidents.incidents = Incidents;
                 return View(incidents);
@@ -37,7 +37,7 @@ namespace Assignment_4_WebApplication.Controllers
             using (var dbContext = new ApplicatonDbContext(optionsBuilder.Options))
             {
                 var review = new Incident() { incident_id = incident_id };
-                dbContext.Reviews.Remove(review);
+                dbContext.Incidents.Remove(review);
                 dbContext.SaveChanges();
             }
             return RedirectToAction("Incidents");
@@ -60,7 +60,7 @@ namespace Assignment_4_WebApplication.Controllers
                 review.description = description;
 
                 //Adding to DB
-                dbContext.Reviews.Add(review);
+                dbContext.Incidents.Add(review);
                 dbContext.SaveChanges();
             }
             return RedirectToAction("Incidents");
